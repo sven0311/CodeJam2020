@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D598619124379E0A00C3109A /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D598619024379E0A00C3109A /* main.swift */; };
+		D598619124379E0A00C3109A /* pracice.swift in Sources */ = {isa = PBXBuildFile; fileRef = D598619024379E0A00C3109A /* pracice.swift */; };
+		D59861982438761800C3109A /* Vestigium.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59861972438761800C3109A /* Vestigium.swift */; };
+		D598619A2438769C00C3109A /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59861992438769C00C3109A /* main.swift */; };
+		D598619C2438A47700C3109A /* NestingDepth.swift in Sources */ = {isa = PBXBuildFile; fileRef = D598619B2438A47700C3109A /* NestingDepth.swift */; };
+		D598619E2438AB2200C3109A /* ParentingPartneringReturns.swift in Sources */ = {isa = PBXBuildFile; fileRef = D598619D2438AB2200C3109A /* ParentingPartneringReturns.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +28,11 @@
 
 /* Begin PBXFileReference section */
 		D598618D24379E0A00C3109A /* CodeJam2020 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CodeJam2020; sourceTree = BUILT_PRODUCTS_DIR; };
-		D598619024379E0A00C3109A /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		D598619024379E0A00C3109A /* pracice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pracice.swift; sourceTree = "<group>"; };
+		D59861972438761800C3109A /* Vestigium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vestigium.swift; sourceTree = "<group>"; };
+		D59861992438769C00C3109A /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		D598619B2438A47700C3109A /* NestingDepth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestingDepth.swift; sourceTree = "<group>"; };
+		D598619D2438AB2200C3109A /* ParentingPartneringReturns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentingPartneringReturns.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +65,11 @@
 		D598618F24379E0A00C3109A /* CodeJam2020 */ = {
 			isa = PBXGroup;
 			children = (
-				D598619024379E0A00C3109A /* main.swift */,
+				D598619024379E0A00C3109A /* pracice.swift */,
+				D59861972438761800C3109A /* Vestigium.swift */,
+				D59861992438769C00C3109A /* main.swift */,
+				D598619B2438A47700C3109A /* NestingDepth.swift */,
+				D598619D2438AB2200C3109A /* ParentingPartneringReturns.swift */,
 			);
 			path = CodeJam2020;
 			sourceTree = "<group>";
@@ -120,7 +132,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D598619124379E0A00C3109A /* main.swift in Sources */,
+				D598619124379E0A00C3109A /* pracice.swift in Sources */,
+				D59861982438761800C3109A /* Vestigium.swift in Sources */,
+				D598619C2438A47700C3109A /* NestingDepth.swift in Sources */,
+				D598619A2438769C00C3109A /* main.swift in Sources */,
+				D598619E2438AB2200C3109A /* ParentingPartneringReturns.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
