@@ -10,69 +10,39 @@ import Foundation
 
 class ParentingPartneringReturns {
     
-    func solve(times: [(Int, Int, Int)], t: Int) {
-        var sol: Array<Character> = Array(repeating: "C", count: times.count)
+    func solve(times: inout [(Int, Int, Int)], t: Int) {
+        var sol : Array<Character> = Array(repeating: "C", count: times.count)
         
-        var c: [(Int, Int, Int)] = []
-        var j: [(Int, Int, Int)] = []
+        times.sort {
+            $0.0 < $1.0
+        }
+        
+        var c: [(Int, Int)] = []
+        var j: [(Int, Int)] = []
         
         for (start, end, index) in times {
-            if !assignActivity(start: start, end: end, index: index, c: &c, j: &j, sol: &sol) {
+            if hasTime(start: start, end: end, person: c) {
+                c.append((start, end))
+                sol[index] = "C"
+            } else if hasTime(start: start, end: end, person: j) {
+                j.append((start, end))
+                sol[index] = "J"
+            } else {
                 print("Case #\(t): IMPOSSIBLE")
                 return
             }
         }
-                
+        
         print("Case #\(t): \(String(sol))")
     }
-    
-    func assignActivity(start: Int, end: Int, index: Int, c: inout [(Int, Int, Int)], j: inout [(Int, Int, Int)], sol:  inout [Character]) -> Bool {
-        let indexBlockingC = hasNoTimeBecauseOfActivityWithIndex(start: start, end: end, person: c)
-        if indexBlockingC < 0 {
-            c.append((start, end, index))
-            sol[index] = "C"
-            return true
-        }
-        let indexBlockingJ = hasNoTimeBecauseOfActivityWithIndex(start: start, end: end, person: j)
-        if indexBlockingJ < 0 {
-            j.append((start, end, index))
-            sol[index] = "J"
-            return true
-        }
-        
-        if changeActivityToOtherPerson(index: indexBlockingJ, from: &j, to: &c, sol: &sol, toPerson: "C") {
-            return assignActivity(start: start, end: end, index: index, c: &c, j: &j, sol: &sol)
-        }
-        
-        if changeActivityToOtherPerson(index: indexBlockingC, from: &c, to: &j, sol: &sol, toPerson: "J") {
-            return assignActivity(start: start, end: end, index: index, c: &c, j: &j, sol: &sol)
-        }
-        
-        return false
-    }
-    
-    func changeActivityToOtherPerson(index: Int, from: inout [(Int, Int, Int)], to: inout [(Int, Int, Int)], sol: inout [Character], toPerson: Character) -> Bool {
-        let ind = from.firstIndex { $0.2 == index }
-        let activity = from.remove(at: ind!)
-        
-        if (hasNoTimeBecauseOfActivityWithIndex(start: activity.0, end: activity.1, person: to) < -1) {
-            to.append(activity)
-            sol[index] = toPerson
-            return true
-        }
-        
-        from.append(activity)
-        return false
-    }
-    
-    // -1 means has Time
-    func hasNoTimeBecauseOfActivityWithIndex(start: Int, end: Int, person: [(Int, Int, Int)]) -> Int {
-        for (s, e, index) in person {
+
+    func hasTime(start: Int, end: Int, person: [(Int, Int)]) -> Bool {
+        for (s, e) in person {
             if !(end <= s || start >= e) {
-                return index
+                return false
             }
         }
-        return -1
+        return true
     }
     
     func run() {
@@ -89,7 +59,7 @@ class ParentingPartneringReturns {
                 times.append((time[0], time[1], i))
             }
             
-            solve(times: times, t: index)
+            solve(times: &times, t: index)
         }
     }
 }
